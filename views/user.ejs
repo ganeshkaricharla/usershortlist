@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img src="<%= userDetails.profileUrl %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= userDetails.name %></h5>
+                  <p class="card-text"><%=userDetails.userId %> [<%=userDetails.status %>]</p>
+                  <a href="/change/<%=userDetails.userId %>/accepted" class="btn btn-primary">Accept</a>
+                  <a href="/change/<%=userDetails.userId %>/rejected" class="btn btn-warning">Reject</a>
+                </div>
+              </div>
+        </div>
+    </div>
+
+<%- include('partials/footer') %>

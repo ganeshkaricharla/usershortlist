@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <form action="/search" method="post">
+        <input list="userNames" class="form-control search" type="search" name="searchedName" id="search-box" onchange="this.form.submit()">
+        <datalist id="userNames">
+            <%for(var i=0; i < usersList.length; i++){ %>
+                <option value="<%=usersList[i].name %>"><%=  usersList[i].name %></option>
+            <%}%>
+        </datalist>
+    </form>
+    
+
+    <div class="container">
+        <div class="row">
+            <%for(var i=0; i < usersList.length; i++){%>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%=usersList[i].profileUrl %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=usersList[i].name %>
+                            </h5>
+                            <p class="card-text">
+                                <%=usersList[i].userId %> [<%=usersList[i].status %>]
+                            </p>
+                            <a href="/user/<%= usersList[i].userId %>" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+
+        </div>
+    </div>
+
+
+
+
+
+    <%- include('partials/footer') %>
